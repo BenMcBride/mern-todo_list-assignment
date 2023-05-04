@@ -1,9 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 const ToDo = () => {
   const [addToDo, setAddToDo] = useState('')
-  const [toDo, setToDo] = useState([])
+  // used this guide to store in localStorage: 
+  // https://blog.logrocket.com/using-localstorage-react-hooks/
+  const [toDo, setToDo] = useState(() => {
+      const saved = localStorage.getItem('toDo');
+      const initialValue = JSON.parse(saved);
+      return initialValue || '';
+  });
 
   const createToDo = (e) => {
     e.preventDefault();
@@ -27,7 +33,10 @@ const ToDo = () => {
     }
     setToDo(toDoCopy);
   }
-  
+
+  useEffect(() => {
+    localStorage.setItem('toDo', JSON.stringify(toDo))
+  }, [toDo])
 
   return (
     <div>
