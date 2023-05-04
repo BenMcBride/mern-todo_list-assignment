@@ -51,7 +51,7 @@ const ToDo = () => {
             {toDo.map((item, i) =>
               <li key={ i } >
                 <span className={ item.isDone ? 'toDoStrike' : 'toDo' }>{ item.item }</span>
-                <button id={i} onClick={ strike }>☑</button>
+                <input className='check' type='checkbox' id={i} onClick={ strike } checked={item.isDone}/>
                 <button id={i} onClick={ deleteToDo }>Delete</button>
               </li>
             )}

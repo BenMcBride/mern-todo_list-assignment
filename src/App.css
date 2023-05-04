@@ -43,3 +43,6 @@
 .toDoStrike{
   text-decoration: line-through;
 }
+.check{
+  margin: 5px;
+}
