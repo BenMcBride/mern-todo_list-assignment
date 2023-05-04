@@ -8,7 +8,7 @@ const ToDo = () => {
   const [toDo, setToDo] = useState(() => {
       const saved = localStorage.getItem('toDo');
       const initialValue = JSON.parse(saved);
-      return initialValue || '';
+      return initialValue || [];
   });
 
   const createToDo = (e) => {
