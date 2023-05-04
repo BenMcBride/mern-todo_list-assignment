@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.toDo {
+  text-decoration: none;
+}
+.toDoStrike{
+  text-decoration: line-through;
+}
