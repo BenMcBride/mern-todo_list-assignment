@@ -18,10 +18,9 @@ const ToDo = () => {
     setAddToDo('')
   }
 
-  const deleteToDo = (e) => {
-    e.preventDefault();
+  const deleteToDo = (idx) => {
     const toDoCopy = [...toDo]
-    toDoCopy.splice(e.target.id, 1)
+    toDoCopy.splice(idx, 1)
     setToDo(toDoCopy)
   }
 
@@ -52,7 +51,7 @@ const ToDo = () => {
               <li key={ i } >
                 <span className={ item.isDone ? 'toDoStrike' : 'toDo' }>{ item.item }</span>
                 <input className='check' type='checkbox' id={i} onClick={ strike } checked={item.isDone}/>
-                <button id={i} onClick={ deleteToDo }>Delete</button>
+                <button id={i} onClick={ () => deleteToDo(i) }>Delete</button>
               </li>
             )}
           </ul> : ''
